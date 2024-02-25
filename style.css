@@ -4,8 +4,10 @@
 }
 
 body {
+    font-family: "Space Mono", monospace;
     width: 100vw;
     height: 100vh;
+    background-color: hsl(185, 41%, 84%);
 }
 
 .main {
@@ -23,11 +25,16 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid black;
+}
+
+.container h1 {
+    color: hsl(183, 100%, 15%);
 }
 
 .container .box {
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    border-radius: 20px;
+    background-color: hsl(0, 0%, 100%);
     width: 100%;
     height: 85%;
     display: flex;
@@ -37,34 +44,110 @@ body {
 }
 
 .box .left, .right {
-    border: 2px solid black;
     width: 48%;
     height: 100%;
     box-sizing: border-box;
 }
 
 .left {
+    /* font-size: 18px; */
     display: grid;
     grid-template-rows: 1fr 2fr 1fr;
+    align-items: center;
+}
+
+.left .item {
+    position: relative;
+    width: 100%;
+}
+
+.left .item img {
+    position: absolute;
+    top: 6.5vh;
+    left: 0.6vw;
+}
+
+.left input {
+    color: hsl(183, 100%, 15%);
+    background-color: hsl(189, 41%, 97%);
+    font-size: 24px;
+    width: 100%;
+    margin: 5px 0;
+    text-align: end;
+    padding: 0.3vw 0.5vw;
+    box-sizing: border-box;
+    /* border: 2px solid black; */
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+
+.left .item-2 .box2 {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.box2 .rect {
+    color: white;
+    background-color: hsl(183, 100%, 15%);
+    font-size: 24px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.3vw 0.1vw;
+    width: 100%;
+    /* border: 2px solid black; */
+    border-radius: 5px;
+}
+
+.box2 .rect:nth-child(6) {
+    color: hsl(183, 100%, 15%);
+    background-color: hsl(189, 41%, 97%);
 }
 
 .right {
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    color: white;
+    background-color: hsl(183, 100%, 15%);
     padding: 3vw;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     align-items: center;
 }
 
+.right h1 {
+    color: hsl(172, 67%, 45%);
+}
+
 .right .item {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
     justify-content: space-between;
+}
+
+/* .right .item .summary p:nth-child(1) {
+    font-size: 14px;
+} */
+
+.right .item .summary p:nth-child(2) {
+    font-size: 14px;
+    color: hsl(172, 67%, 45%);
 }
 
 .right .item .amount {
     text-align: end;
     width: 50%;
-    border: 2px solid black;
 }
 
 .right .btn {
@@ -74,6 +157,10 @@ body {
 }
 
 .btn button {
+    /* font-size: 17px; */
+    background-color: hsl(172, 67%, 45%);
+    border: none;
+    border-radius: 5px;
     width: 100%;
     height: 100%;
 }
