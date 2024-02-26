@@ -38,7 +38,7 @@
               <div class="rect">15%</div>
               <div class="rect">25%</div>
               <div class="rect">50%</div>
-              <div class="rect">Custom</div>
+              <div class="rect" id="Custom">Custom</div>
             </div>
           </div>
           <div class="item item-3">
@@ -55,7 +55,7 @@
               <p>/ person</p>
             </div>
             <div class="amount">
-              <h1>$0.00</h1>
+              <h1 id="Discount-Amount">$0.00</h1>
             </div>
           </div>
           <div class="item">
@@ -64,17 +64,19 @@
               <p>/ person</p>
             </div>
             <div class="amount">
-              <h1>$0.00</h1>
+              <h1 id="Total-Amount">$0.00</h1>
             </div>
           </div>
           <div class="item btn">
-            <button>RESET</button>
+            <button id="calc">CALCULATE</button>
+            <button id="reset">RESET</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
 
 </html>
