@@ -5,6 +5,7 @@ var Damount = document.querySelector("#Discount-Amount");
 var Tamount = document.querySelector("#Total-Amount");
 var calculate = document.querySelector("#calc");
 var reset = document.querySelector("#reset");
+var span = document.querySelector('span');
 var disc;
 
 
@@ -84,3 +85,22 @@ reset.addEventListener('click', function () {
     Damount.textContent = `$0.00`;
     Tamount.textContent = `$0.00`;
 })
+
+
+
+// Validation Logic
+setInterval(function(){
+    no_of_people = people.value;
+
+    if(no_of_people == 0) {
+        span.style.visibility = "visible";
+        calculate.setAttribute('disabled', true);
+        reset.setAttribute('disabled', true);
+    }
+    else {
+        span.style.visibility = "hidden";
+        calculate.removeAttribute('disabled', true);
+        reset.removeAttribute('disabled', true);
+    }
+    
+}, 1000);

@@ -59,9 +59,15 @@ body {
     width: 100%;
 }
 
+.item-3 span {
+    color: red;
+    position: absolute;
+    right: 0;
+}
+
 .left .item img {
     position: absolute;
-    top: 6vh;
+    top: 6.5vh;
     left: 0.6vw;
 }
 
