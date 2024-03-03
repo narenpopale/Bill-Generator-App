@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Space Mono", monospace;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsl(185, 41%, 84%);
+}
+
+.main {
+    height: fit-content;
+    width: 80vw;
+    margin: 8vh auto;
+}
+
+.company-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer-info {
+    margin: 8vh 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    width: 40%;
+}
+
+.data .head {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;  
+    padding: 0 2vw;  
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    align-items: center;
+    height: 10vh;
+}
+
+.items .item {
+    border-bottom: 2px solid black;    
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    padding: 0 2vw;  
+    box-sizing: border-box;
+    align-items: center;
+    height: 10vh;
+}
+
+.item p {
+    width: 20%;
+}
+
+.item-name {
+    width: 40%;
+}
+
+.data .total {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0 2vw;  
+    box-sizing: border-box;
+    height: 10vh;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    margin: 2vh 0;
+    top: 2vh;
+    position: sticky;
+}
+
+.btn button {
+    padding: 1vh 2vw;
+    border: 2px solid black;
+    background-color: lemonchiffon;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.btn button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
