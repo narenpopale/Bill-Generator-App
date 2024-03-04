@@ -140,7 +140,7 @@ h1 {
     width: 100%;
 }
 
-.item-3 span {
+span {
     color: red;
     position: absolute;
     right: 0;
@@ -296,6 +296,12 @@ input[type=number]::-webkit-outer-spin-button {
     height: 5vh;
 }
 
+button a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+
 /* Hover Effect Code */
 input:hover {
     cursor: pointer;
@@ -315,6 +321,9 @@ input:hover {
     background-color: hsl(185, 41%, 84%);
 }
 
+.bottom button:hover {
+    transform: scale(1.2);
+}
 
 /* JS classes */
 .rect-js {
