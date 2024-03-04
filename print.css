@@ -1,0 +1,21 @@
+@media print {
+
+    .btn {
+        display: none;
+    }
+
+    .main {
+        padding: 5vw;
+        border: 2px solid black;
+        margin: 4vh auto;
+    }
+
+    .data .head {
+        height: 7vh;
+    }
+
+    .items .item {
+        height: 5vh;
+    }
+
+}

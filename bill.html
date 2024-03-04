@@ -7,9 +7,10 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-    <title>Bill Generator App</title>
+    <title>Invoice</title>
 
     <link rel="stylesheet" href="bill.css">
+    <link rel="stylesheet" href="print.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,18 +25,18 @@
     <div class="main">
         <div class="company-info">
             <div class="logo">
-                <img src="images/logo.svg" alt="img">
+                <h1>INVOICE</h1>
             </div>
             <div class="head">
-                <h1>Company</h1>
+                <h1 id="name-company">Company</h1>
             </div>
         </div>
         <div class="customer-info">
             <div class="left">
                 <h4>BILLED TO:</h4>
-                <p class="name">Elon Musk</p>
-                <p class="ph">1234567890</p>
-                <p class="address">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, illum.</p>
+                <p id="name">Elon Musk</p>
+                <p id="ph">1234567890</p>
+                <p id="address">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, illum.</p>
             </div>
             <div class="date">
                 <p>12 may 2023</p>
@@ -48,35 +49,23 @@
                 <h4>Unit Price</h4>
                 <h4>Total</h4>
             </div>
-            <div class="items">
+            <div class="items" id="display">
                 <div class="item">
                     <p class="item-name" id="name">T-Shirt</p>
                     <p id="quant">10</p>
                     <p id="price">$50</p>
                     <p id="price">$50</p>
-                </div>
-                <div class="item">
-                    <p class="item-name" id="name">T-Shirt</p>
-                    <p id="quant">10000000</p>
-                    <p id="price">$5000000</p>
-                    <p id="price">$50</p>
-                </div>
-                <div class="item">
-                    <p class="item-name" id="name">T-Shirt</p>
-                    <p id="quant">10</p>
-                    <p id="price">$50</p>
-                    <p id="price">$500000000</p>
                 </div>
             </div>
             <div class="total">
                 <div></div>
                 <div></div>
                 <h3>Total:</h3>
-                <h3>$500</h3>
+                <h3 id="total">0</h3>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="bill.js"></script>
 </body>
 
 </html>

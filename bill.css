@@ -6,13 +6,13 @@
 body {
     font-family: "Space Mono", monospace;
     width: 100vw;
-    height: 100vh;
     background-color: hsl(185, 41%, 84%);
 }
 
 .main {
     height: fit-content;
     width: 80vw;
+    min-height: 84vh;
     margin: 8vh auto;
 }
 

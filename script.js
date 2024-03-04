@@ -5,7 +5,7 @@
 var companyName = document.querySelector('#Company');
 var companyPhone = document.querySelector('#CompanyPhone');
 var saveCompanyInfo = document.querySelector('#company-info');
-var cName = document.querySelector('h1');
+var cName = document.querySelector('#name-company');
 var companyInfo = {
     'name': 'Company Name',
     'phone': '123'
@@ -26,15 +26,18 @@ var customerInfo = {
 
 // updating UI
 setInterval(() => {
-    cName.textContent = companyInfo.name;
+    var obj = JSON.parse(localStorage.getItem('company-info'));
+    if (obj == null) cName.textContent = companyInfo.name;
+    else cName.textContent = obj.name;
 }, 1000);
 
 
 saveCompanyInfo.addEventListener('click', () => {
     companyInfo.name = companyName.value;
     companyInfo.phone = companyPhone.value;
-    console.log(companyInfo);
+    companyInfo.name = companyInfo.name.toUpperCase();
     localStorage.setItem('company-info', JSON.stringify(companyInfo));
+    window.alert("Company Details Updated!");
 })
 
 
@@ -42,8 +45,8 @@ saveCustomerInfo.addEventListener('click', () => {
     customerInfo.name = customerName.value;
     customerInfo.phone = customerPhone.value;
     customerInfo.address = customerAddress.value;
-    console.log(customerInfo);
     localStorage.setItem('customer-info', JSON.stringify(customerInfo));
+    window.alert("Customer Details Updated!");
 })
 
 
@@ -52,19 +55,22 @@ saveCustomerInfo.addEventListener('click', () => {
 var resetInfo = document.querySelector('#reset-info');
 
 resetInfo.addEventListener('click', () => {
-    companyName.value = "";
-    companyPhone.value = "";
-    customerName.value = "";
-    customerPhone.value = "";
-    customerAddress.value = "";
-    companyInfo.name = "Company Name";
-    localStorage.clear();
+    var is = window.confirm("Do you want to Reset?");
+    if(is) {
+        companyName.value = "";
+        companyPhone.value = "";
+        customerName.value = "";
+        customerPhone.value = "";
+        customerAddress.value = "";
+        companyInfo.name = "Company Name";
+        localStorage.clear();
+    }
 })
 
 
 
 
-// ----------------Left Bill Container Logic---------------------
+// ----------------Left Container - Bill Logic---------------------
 
 var item_name = document.querySelector("#product");
 var unit_price = document.querySelector('#bill');
@@ -178,3 +184,101 @@ setInterval(function () {
     }
 
 }, 1000);
+
+
+
+// Add, Clear Items ----->
+
+var items = [];
+var item = {
+    name: '',
+    unit_price: 0,
+    discount: 0,
+    quantity: 0,
+    price: 0
+}
+
+
+add.addEventListener('click', () => {
+    item.name = item_name.value;
+    item.unit_price = unit_price.value;
+    item.discount = discount_percent;
+    item.quantity = quantity.value;
+    let discount_price = (item.unit_price * item.quantity) * (item.discount / 100);
+    item.price = (item.unit_price * item.quantity) - discount_price;
+    items.push({ ...item });
+    localStorage.setItem('items', JSON.stringify(items));
+})
+
+
+clear_all.addEventListener('click', () => {
+    localStorage.removeItem('items');
+})
+
+// Add Item ----->
+
+
+
+// Display total items and total price ---->
+
+setInterval(() => {
+    var itemslist = JSON.parse(localStorage.getItem('items'));
+
+    if (itemslist != null) {
+        items = itemslist;
+    }
+    else {
+        items = [];
+    }
+
+    var no_of_items = items.length;
+    var total_amount = 0;
+
+    items.forEach((item) => {
+        total_amount += item.price;
+    });
+
+    total_items.textContent = `${no_of_items}`;
+    total_price.textContent = `${total_amount.toFixed(0)}`;
+}, 1000)
+
+// Display total items and total price ---->
+
+
+
+// ----------------Right Container - Items Display Logic---------------------
+
+var container = document.querySelector('#display')
+
+
+setInterval(() => {
+    var displayItem = "";
+
+    items.forEach((item) => {
+        displayItem = displayItem.concat(`<div class="item">
+                                            <p id="name">${item.name}</p>
+                                            <p id="quant">${item.quantity}</p>
+                                            <p id="price">${item.price.toFixed(0)}</p>
+                                        </div>`);
+    })
+
+    container.innerHTML = `${displayItem}`;
+}, 1000)
+
+
+
+// -----------------------------View Bill------------------------------------
+
+var view = document.querySelector('#view');
+
+view.addEventListener('click', ()=>{
+    var obj1 = JSON.parse(localStorage.getItem('company-info'));
+    var obj2 = JSON.parse(localStorage.getItem('customer-info'));
+
+    if(obj1 == null || obj2 == null) {
+        window.alert("Please Enter Company and Customer Details!");
+    }
+    else {
+        window.open("/bill.html", "_blank");
+    }
+})
