@@ -123,7 +123,8 @@ h1 {
     box-sizing: border-box;
 }
 
-.box .left, .right {
+.box .left,
+.right {
     width: 48%;
     height: 100%;
     box-sizing: border-box;
@@ -164,10 +165,10 @@ span {
     border-radius: 5px;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
-    margin: 0; 
+    margin: 0;
 }
 
 
@@ -336,4 +337,34 @@ input:hover {
     padding: 0.3vw 0.1vw;
     width: 100%;
     border-radius: 5px;
+}
+
+
+/* Responsive */
+@media (orientation: landscape) {
+    .none {
+        display: none;
+    }
+}
+
+@media (orientation: portrait) {
+    body {
+        background-color: black;
+    }
+
+    .none {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        color: red;
+    }
+
+    .nav, .info, .head, .main {
+        display: none;
+    }
+
 }
